@@ -32,16 +32,16 @@ public class Helper {
         Fact f = null;
         Iterator iterator = motor.listFacts();
 
-    try{ //ok
+    //try{ //ok
         while (iterator.hasNext()){
             Fact faux = (Fact)iterator.next();
-            String slotV ="";
+            //String slotV ="";
             if(faux.getName().equals(templateName)){
-                //String slotV;
-                //try {
+                String slotV;
+                try {
                     Value value = faux.getSlotValue(slotName);
                     slotV = value.stringValue(motor.getGlobalContext());
-                //} catch (JessException e) {
+                } catch (JessException e) {
                     return null;
                 }
 
@@ -50,9 +50,9 @@ public class Helper {
                     break;
                 }
 
-        }
-        }catch (JessException e) {
-                    return null;
+        
+        }//catch (JessException e) {
+                    //return null;
         }
         return f;
     }
